@@ -1,0 +1,17 @@
+<html ng-app="FoodItemsApp">
+	<head>
+		<script src="lib/angular.min.js"></script>
+		<script src="scripts/app.js"></script>
+		<style>
+			.green-border{border:1px solid green;color:green;}
+			.red-border{border:1px solid red;color:red;}
+			</style>
+	</head>
+	<body ng-controller="FoodItemsController">
+		<input type="text" ng-model="foodItems" />
+		<button ng-click="CheckIfTooMuch()">Check If Too Much</button>
+		<br/>
+		<br/>
+		<div style="display:inline-block" ng-class="{'red-border':cssCode==1,'green-border':cssCode==0}">{{message}}</div>
+	</body>
+</html>
