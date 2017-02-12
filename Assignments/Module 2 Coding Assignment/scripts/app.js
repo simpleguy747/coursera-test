@@ -26,7 +26,6 @@
 
     // AlreadyBoughtController
     function AlreadyBoughtController(ShoppingListCheckOffService){
-        debugger;
         var self = this;
         self.itemsAlreadyBeBought = ShoppingListCheckOffService.getItemsAlreadyBeBought();
         }
