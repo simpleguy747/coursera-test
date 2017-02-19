@@ -24,7 +24,7 @@
     <div class="col-md-12 col-lg-12" ng-show="NarrowItDownCtrl.foundItems.length > 0">
       <found-items my-list="NarrowItDownCtrl.foundItems" on-remove="NarrowItDownCtrl.removeItem(index)"></found-items>
     </div>
-    <div class="col-md-12 col-lg-12 text-danger" ng-show="NarrowItDownCtrl.foundItems.length == 0 && NarrowItDownCtrl.SearchPressed">
+    <div class="col-md-12 col-lg-12 text-danger" ng-if="NarrowItDownCtrl.foundItems.length == 0 && NarrowItDownCtrl.SearchPressed">
       <b>Nothing found</b>
     </div>
   </div>

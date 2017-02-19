@@ -26,13 +26,14 @@
                 function successCallback(foundItems)
                 {
                     self.foundItems = foundItems;
-                    
+                    self.SearchPressed = true;
                 });
         }
         else {
             self.foundItems=[];
+            self.SearchPressed = true;
         }
-        self.SearchPressed = true;
+        
         }
 
         self.removeItem = function(itemIndex){
