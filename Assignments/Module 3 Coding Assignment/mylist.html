@@ -1,0 +1,21 @@
+<div>
+    <table class="table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Short Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="food in list.listOfItems">
+                <td>{{food.name}}</td>
+                <td>{{food.short_name}}</td>
+                <td>{{food.description}}</td>
+                <td><button class="btn btn-danger" ng-click="list.onRemove({index:$index})">Don't want this one!</button>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
