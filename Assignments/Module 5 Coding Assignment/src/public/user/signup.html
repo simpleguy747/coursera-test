@@ -6,28 +6,35 @@
 </div>
 <div class="row">
 <div class="col-md-6">
-<form>
+<form name="signUpForm" novalidate>
     <div class="form-group">
       <label for="firstName">First Name:</label>
-      <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="UserCtrl.UserInformation.FirstName" />
+      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name" ng-model="UserCtrl.UserInformation.FirstName" ng-required="true"/>
+      <span class="has-error" ng-show="UserCtrl.Submit && signUpForm.firstName.$error.required">This is a required field.</span>
     </div>
     <div class="form-group">
       <label for="lastName">Last Name:</label>
-      <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="UserCtrl.UserInformation.LastName" />
+      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter Last Name" ng-model="UserCtrl.UserInformation.LastName" ng-required="true"/>
+      <span class="has-error" ng-show="UserCtrl.Submit && signUpForm.lastName.$error.required">This is a required field.</span>
     </div>
     <div class="form-group">
       <label for="phone">Phone:</label>
-      <input type="text" class="form-control" id="phone" placeholder="Enter Phone" ng-model="UserCtrl.UserInformation.Phone" />
+      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone(+00-000-00000)" ng-model="UserCtrl.UserInformation.Phone" ng-required="true" ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/" />
+      <span class="error" ng-show="signUpForm.phone.$error.pattern">Please match pattern[+00-000-00000].</span>
+      <span class="has-error" ng-show="UserCtrl.Submit && signUpForm.phone.$error.required">This is a required field.</span>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter Email" ng-model="UserCtrl.UserInformation.EmailAddress" />
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" ng-model="UserCtrl.UserInformation.EmailAddress" ng-required="true"/>
+      <span class="has-error" ng-show="UserCtrl.Submit && signUpForm.email.$error.required">This is a required field.</span>
     </div>
      <div class="form-group">
       <label for="menushortcode">Menu number of your favorite dish:</label>
-      <input type="text" class="form-control" id="menushortcode" placeholder="Enter Menu Number" ng-model="UserCtrl.UserInformation.ShortName" />
+      <input type="text" class="form-control" id="menushortcode" name="menushortcode" placeholder="Enter Menu Number" ng-model="UserCtrl.UserInformation.ShortName" ng-required="true" ng-blur="UserCtrl.CheckForValidMenu()"/>
+      <span class="has-error" ng-show="UserCtrl.Submit && signUpForm.menushortcode.$error.required">This is a required field.</span>
+      <span ng-show="!UserCtrl.IsValidItem">No such menu number exists</span>
     </div>
-    <button class="btn btn-default" ng-click="UserCtrl.SaveUserInformation()">Submit</button>
+    <button class="btn btn-default" ng-click="UserCtrl.Submit = true; signUpForm.$valid && UserCtrl.SaveUserInformation()">Submit</button>
   </form>
  </div>
 </div>

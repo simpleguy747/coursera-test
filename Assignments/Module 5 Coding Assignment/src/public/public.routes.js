@@ -49,16 +49,22 @@ function routeConfig ($stateProvider) {
 
     })
     .state('public.myinfo',{
-      url:'/myinfo/{shortcode}',
+      url:'/myinfo',
       templateUrl:'src/public/user/info.html',
       controller:'MyInfoController',
       controllerAs:'MyInfoCtrl',
       resolve: {
-        menuItems: ['$stateParams','MenuService','UserService',function ($stateParams, MenuService, UserService) {
+        favoriteMenuItem: ['$stateParams','MenuService','UserService',function ($stateParams, MenuService, UserService) {
           var short_name = UserService.GetUserInformation().ShortName;
-          return MenuService.getMenuItemFromShortName(short_name);
+          if(short_name){
+            return MenuService.getMenuItemFromShortName(short_name);
+          }
+          else
+        {
+          return {};
+        }
         }]
       }
-    });;
+    });
 }
 })();

@@ -1,0 +1,55 @@
+<div class="container">
+    <div ng-show="MyInfoCtrl.CheckUserSignedUp()">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Registered Information</h2>
+        </div>
+        <div class="col-md-8">
+            <h2>Favorite Food</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table table-bordered">
+                <tr>
+                    <th>First Name</th>
+                    <td>{{MyInfoCtrl.personalInformation.FirstName}}</td>
+                </tr>
+                 <tr>
+                    <th>Last Name</th>
+                    <td>{{MyInfoCtrl.personalInformation.LastName}}</td>
+                </tr>
+                 <tr>
+                    <th>Phone</th>
+                    <td>{{MyInfoCtrl.personalInformation.Phone}}</td>
+                </tr>
+                 <tr>
+                    <th>Email Address</th>
+                    <td>{{MyInfoCtrl.personalInformation.EmailAddress}}</td>
+                </tr>
+            </table>
+          
+        </div>
+        <div class="col-md-3">
+            <div class="menu-item-photo marginL0">
+                <div>{{MyInfoCtrl.favouriteMenuItem.short_name}}</div>
+                <img class="img-responsive" width="250" height="150" ng-src= "{{MyInfoCtrl.favouriteMenuItem.foodImage}}" alt="{{MyInfoCtrl.favouriteMenuItem.name}}">
+            </div>
+        </div>
+            <div class="col-md-5">
+                <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{MyInfoCtrl.favouriteMenuItem.name}}</h3>
+      <p class="menu-item-details">{{MyInfoCtrl.favouriteMenuItem.description}}</p>
+    </div>
+            </div>
+            
+        
+    </div>
+    
+</div>
+<div ng-show="!MyInfoCtrl.CheckUserSignedUp()">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+</div>
+</div>
+
+
