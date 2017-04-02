@@ -34,7 +34,7 @@
       <span class="has-error" ng-show="UserCtrl.Submit && signUpForm.menushortcode.$error.required">This is a required field.</span>
       <span ng-show="!UserCtrl.IsValidItem">No such menu number exists</span>
     </div>
-    <button class="btn btn-default" ng-click="UserCtrl.Submit = true; signUpForm.$valid && UserCtrl.SaveUserInformation()">Submit</button>
+    <button class="btn btn-default" ng-click="UserCtrl.Submit = true; signUpForm.$valid && UserCtrl.SaveUserInformation()" ng-disable="!signUpForm.$valid">Submit</button>
   </form>
  </div>
 </div>
